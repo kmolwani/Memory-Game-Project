@@ -27,7 +27,7 @@ function shuffle(array) {
 
 var cards = document.querySelectorAll('.card');
 var cardOpen = [];
-
+var matchingCards = 0;
 
 cards.forEach( function(card) {
   card.addEventListener('click', function(event) {
@@ -39,28 +39,35 @@ cards.forEach( function(card) {
 
             if (cardOpen.length == 2 && cardOpen[0] === cardOpen[1]) { //checking if the cards match
 
-              var match = document.querySelectorAll('.open' , '.show')
+              var match = document.querySelectorAll('.open' , '.show') //finding all cards with class open & show
 
               match.forEach ( function(matches) {
                 setTimeout(function() {
-                  matches.classList.remove('open', 'show');
-                  matches.classList.add('match');
+                  matches.classList.remove('open', 'show'); //removing class open & show from the open cards
+                  matches.classList.add('match'); //adding class match to the open cards
                 }, 300);
               });
 
-              cardOpen = [];
+              cardOpen = []; // setting cards open counter back to zero
+
+              // checking for total matched cards
+              matchingCards += match.length;
+
+              if (matchingCards == 16 ){
+                alert ('Congratulations!')
+              }
 
               } else if (cardOpen.length == 2 && cardOpen[0] != cardOpen[1]) { //checking if the cards do not match
 
-                    var flip = document.querySelectorAll('.open', '.show')
+                    var flip = document.querySelectorAll('.open', '.show') //finding all cards with class open & show
 
                     flip.forEach ( function(flips) {
                       setTimeout(function() {
-                        flips.classList.remove('open','show')
+                        flips.classList.remove('open','show') //removing class open & show from open cards
                       }, 300);
                     });
 
-                    cardOpen = [];
+                    cardOpen = []; // setting cards open counter back to zero
 
               }
       }
