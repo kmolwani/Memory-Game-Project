@@ -39,6 +39,17 @@ cards.forEach( function(card) {
 
             if (cardOpen.length == 2 && cardOpen[0] === cardOpen[1]) { //checking if the cards match
 
+              var match = document.querySelectorAll('.open' , '.show')
+
+              match.forEach ( function(matches) {
+                setTimeout(function() {
+                  matches.classList.remove('open', 'show');
+                  matches.classList.add('match');
+                }, 300);
+              });
+
+              cardOpen = [];
+
               } else if (cardOpen.length == 2 && cardOpen[0] != cardOpen[1]) { //checking if the cards do not match
 
                     var flip = document.querySelectorAll('.open', '.show')
