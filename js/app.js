@@ -26,11 +26,33 @@ function shuffle(array) {
 }
 
 var cards = document.querySelectorAll('.card');
+var cardOpen = [];
+
 
 cards.forEach( function(card) {
   card.addEventListener('click', function(event) {
-    card.classList.add('open','show');
-    console.log(card);
+      cardOpen.push(card.firstElementChild.className);
+
+        if (cardOpen.length <= 2) {
+          card.classList.add('open','show');
+          console.log(card.className);
+
+            if (cardOpen.length == 2 && cardOpen[0] === cardOpen[1]) { //checking if the cards match
+
+              } else if (cardOpen.length == 2 && cardOpen[0] != cardOpen[1]) { //checking if the cards do not match
+
+                    var flip = document.querySelectorAll('.open', '.show')
+
+                    flip.forEach ( function(flips) {
+                      setTimeout(function() {
+                        flips.classList.remove('open','show')
+                      }, 300);
+                    });
+
+                    cardOpen = [];
+
+              }
+      }
   });
 });
 
