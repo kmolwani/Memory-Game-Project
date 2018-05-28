@@ -112,9 +112,21 @@ function matchingGame() {
                       cardOpen = []; // setting cards open counter back to zero
                 }
         }
+        var repeat = document.querySelector('.restart')
+
+        // Giving user option to restart the game
+        repeat.addEventListener('click', function(event) {
+          moves = 0;
+          var movesUpdate = document.querySelector('.moves');
+          movesUpdate.textContent = moves;
+          shuffle(cardList);
+          cardsStack();
+          matchingGame()
+        });
     });
   });
 };
+
 
 shuffle(cardList);
 cardsStack();
