@@ -94,7 +94,9 @@ function matchingGame() {
                 matchingCards += match.length;
 
                 if (matchingCards == 16 ){
-                  alert ('Congratulations!')
+                  setTimeout(function() {
+                      alert ('Congratulations!');
+                  }, 300);
                 }
 
                 } else if (cardOpen.length == 2 && cardOpen[0] != cardOpen[1]) { //checking if the cards do not match
