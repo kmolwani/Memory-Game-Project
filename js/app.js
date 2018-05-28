@@ -56,6 +56,7 @@ function matchingGame() {
   var cardOpen = [];
   var matchingCards = 0;
   var moves = 0;
+  var starLost = 0;
   // console.log(cards);
 
   cards.forEach( function(card) {
@@ -69,9 +70,11 @@ function matchingGame() {
         if (moves == 20) {
           var star = document.querySelector('.fa-star');
           star.classList.remove('fa-star');
+          starLost = 1;
         } else if (moves == 50) {
           var star = document.querySelector('.fa-star');
           star.classList.remove('fa-star');
+          starLost = 2;
         }
 
           if (cardOpen.length <= 2) {
@@ -116,12 +119,7 @@ function matchingGame() {
 
         // Giving user option to restart the game
         repeat.addEventListener('click', function(event) {
-          moves = 0;
-          var movesUpdate = document.querySelector('.moves');
-          movesUpdate.textContent = moves;
-          shuffle(cardList);
-          cardsStack();
-          matchingGame()
+          location.reload();
         });
     });
   });
