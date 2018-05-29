@@ -63,6 +63,7 @@ h1 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transition: transform 1s;
 }
 
 .deck .card.open {
@@ -75,8 +76,13 @@ h1 {
     font-size: 33px;
 }
 
+.deck .card.unmatch {
+  transform: translateX(100px);
+}
+
 .deck .card.match {
     cursor: default;
+    transform: rotate(360deg);
     background: #02ccba;
     font-size: 33px;
 }

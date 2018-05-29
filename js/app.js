@@ -151,8 +151,8 @@ function startGame() { // this function activates when the user presses the Star
 
                         //using pre tag to be able to use new-line string
                         span.innerHTML = "<pre>" + 'Congratulations! You Won!!!' + '\n\n' +
-                        'You finished the game in ' + min + ' minutes & ' + sec +
-                        ' seconds \nwith ' + moves + ' moves & ' + parseInt(3-starLost) + ' stars' + '\n\nWoooHooooo!!!' + "</pre>";
+                        'You finished the game in ' + min + ' minute(s) & ' + sec +
+                        ' seconds \nwith ' + moves + ' move(s) & ' + parseInt(3-starLost) + ' star(s)' + '\n\nWoooHooooo!!!' + "</pre>";
 
                         var btn = document.createElement('button'); // creating button for restarting the game
                         btn.textContent = 'Restart Game';
@@ -171,9 +171,13 @@ function startGame() { // this function activates when the user presses the Star
                         var flip = document.querySelectorAll('.open', '.show') //finding all cards with class open & show
 
                         flip.forEach ( function(flips) {
+                          flips.classList.add('unmatch');
                           setTimeout(function() {
                             flips.classList.remove('open','show') //removing class open & show from open cards
                           }, 300);
+                          setTimeout(function() {
+                            flips.classList.remove('unmatch') //removing class open & show from open cards
+                          }, 100);
                         });
 
                         cardOpen = []; // setting cards open counter back to zero
