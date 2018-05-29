@@ -7,6 +7,7 @@
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
 
@@ -26,10 +27,12 @@
 
             <div class="restart">
         		<i class="fa fa-repeat"></i>
+            <i class="time"><span class="minutes"></span>:<span class="seconds"></span></i>
         	</div>
         </section>
 
         <ul class="deck">
+          <button onclick="startGame()" class="btn btn-warning shadow-lg btn-block">START GAME</button>
         </ul>
     </div>
 
