@@ -2,8 +2,9 @@
  * Create a list that holds all of your cards
  */
 
-function startGame() {
+function startGame() { // this function activates when the user presses the Start Game button
 
+  // creating an array with all of the card shapes
    var cardList = ['fa-diamond', 'fa-paper-plane-o',
                    'fa-anchor', 'fa-bolt',
                    'fa-cube', 'fa-anchor',
@@ -16,7 +17,6 @@ function startGame() {
    /*
     * Display the cards on the page
     */
-
   function generateCard(cardList) {
     return `<li class='card'><i class='fa ${cardList}'></i></li>`;
   }
@@ -52,22 +52,23 @@ function startGame() {
   /*
    * set up the event listener for a card.
    */
-
   function matchingGame() {
 
     var cards = document.querySelectorAll('.card');
-    var cardOpen = [];
-    var matchingCards = 0;
-    var moves = 0;
-    var starLost = 0;
+    var cardOpen = []; //variable to determing number of cards open
+    var matchingCards = 0; // variable to keep counter of matching cards
+    var moves = 0; // variable to keep moves counter
+    var starLost = 0; // variable to store star rating
 
   ///////////////////////////////////////////////////////////////////////////////////////
+
+    // creating timer for the game
     var seconds = document.querySelector('.seconds');
     var minutes = document.querySelector('.minutes');
 
     seconds.textContent = "00";
     minutes.textContent = "00";
-    var beginTimer = true;
+    var beginTimer = true; //varible to stop the timer when the game ends
     var second = 0;
 
     function timerStart( val ) {
@@ -133,26 +134,27 @@ function startGame() {
                   matchingCards += match.length;
 
                   if (matchingCards == 16 ){
-                    beginTimer = false;
-                    var sec = seconds.innerText;
-                    var min = minutes.innerText;
+                    beginTimer = false; //stopping timer
+                    var sec = seconds.innerText; // setting sec variable to final second value
+                    var min = minutes.innerText; // setting min variable to final minute value
 
                     setTimeout(function() {
-                        var score = document.querySelector('.score-panel');
+                        var score = document.querySelector('.score-panel'); //selecting and removing score-panel from the body
                         score.remove();
-                        var deck = document.querySelector('.deck');
+                        var deck = document.querySelector('.deck'); //selecting and removing deck from the body
                         deck.remove();
 
-                        var span = document.createElement('span')
+                        var span = document.createElement('span') // creating span element to show the Congratulations message
                         document.body.appendChild(span);
 
-                        span.setAttribute("style", "text-align: center;");
+                        span.setAttribute("style", "text-align: center;"); // styling the span
 
+                        //using pre tag to be able to use new-line string
                         span.innerHTML = "<pre>" + 'Congratulations! You Won!!!' + '\n\n' +
                         'You finished the game in ' + min + ' minutes & ' + sec +
                         ' seconds \nwith ' + moves + ' moves & ' + parseInt(3-starLost) + ' stars' + '\n\nWoooHooooo!!!' + "</pre>";
 
-                        var btn = document.createElement('button');
+                        var btn = document.createElement('button'); // creating button for restarting the game
                         btn.textContent = 'Restart Game';
                         btn.setAttribute("style", "width: 50%; text-align: center; margin-left: 25%; margin-right: 25%");
 
